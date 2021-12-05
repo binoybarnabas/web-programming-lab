@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function setnewimage(image)
+        {
+            image.src = 'pexels-gary-spears-250177.jpg'; 
+        } 
+        function setoldimage(image)
+        {
+             image.src = "pexels-brett-sayles-1708601.jpg";
+        }
+        function changetext()
+        {
+            document.getElementById('heading').innerHTML = "christmas is here!!!";
+        }
+        function backtotext()
+        {
+           document.getElementById('heading').innerHTML = "hello there!!!";
+        }
+    </script>
+</head>
+<body>
+     
+        <img src="pexels-brett-sayles-1708601.jpg" d="img1" onmouseover="setnewimage(this)" onmouseout="setoldimage(this)"  height="400px" width="700px">
+        
+        <div id="text">
+        <h3 id="heading" onmouseover="changetext()" onmouseleave="backtotext()">hello there!!!</h3>
+        </div>
+   
+    
+</body>
+</html>
