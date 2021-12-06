@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function correct()
+        {
+            var a1 = document.quiz.president.value;
+            var a2 = document.quiz.award.value;
+            var a3 = document.quiz.tesla.value;
+            var a4 = document.quiz.covid.value;
+            var a5 = document.quiz.state.value;
+            var c = Number(0);
+            if (a1 == 'joebiden')
+            c = c+1;
+            if(a2 == 'messi')
+            c=c+1;
+            if(a3 == 'elon')
+            c=c+1;
+            if(a4 == 'omicron')
+            c=c+1;
+            if(a5 == 'goa')
+            c=c+1;
+            document.getElementById('marks').innerHTML = c;
+        }
+    </script>
+</head>
+
+<body>
+
+    <form name="quiz">
+        <ol start="1">
+            <div>
+                <li>
+                    <p>who is the current president of america?</p>
+                </li><br>
+                <input type="radio" name="president" value="joebiden" id="joebiden">joebiden
+                <input type="radio" name="president" value="obama" id="obama">barakk obama
+                <input type="radio" name="president" value="georgebush" id="georgebush">george bush
+                <input type="radio" name="president" value="washington" id="washington">george washington
+            </div>
+
+            <div>
+                <li>
+                    <p>who won his 7th ballonDor in 2021?</p>
+                </li><br>
+                <input type="radio" name="award" value="ronaldo" id="ronaldo">cristiano ronaldo
+                <input type="radio" name="award" value="messi" id="messi">lionel messi
+                <input type="radio" name="award" value="levandoski" id="levandoski">robert levandoski
+                <input type="radio" name="award" value="mbappe" id="mbappe">mbappe
+            </div>
+
+            <div>
+                <li>
+                    <p>who owns tesla?</p>
+                </li><br>
+                <input type="radio" name="tesla" value="elon" id="elon">elon musk
+                <input type="radio" name="tesla" value="bill" id="bill">bill gates
+                <input type="radio" name="tesla" value="trump" id="trump">donald trump
+                <input type="radio" name="tesla" value="warren" id="warren">warren buffe
+            </div>
+
+            <div>
+                <li>
+                    <p>latest covid variant?</p>
+                </li><br>
+                <input type="radio" name="covid" value="delta" id="delta">delta
+                <input type="radio" name="covid" value="delta+" id="delta+">delta+
+                <input type="radio" name="covid" value="omicron" id="omicron">omicron
+                <input type="radio" name="covid" value="zeta" id="zeta">zeta
+            </div>
+
+            <div>
+                <li>
+                    <p>which among the one is the smallest state in india?</p>
+                </li><br>
+                <input type="radio" name="state" value="kerala" id="kerala">kerala
+                <input type="radio" name="state" value="karnataka" id="karnataka">karnataka
+                <input type="radio" name="state" value="mizoram" id="mizoram">mizoram
+                <input type="radio" name="state" value="goa" id="goa">goa
+            </div>
+            <div>
+                <input type="button" value="submit" onClick="correct()">
+            </div>
+        </ol>
+    </form>
+
+    <h3>
+        total marks obtained is <h2 id="marks"></h2><h3>out of 5 marks</h3>
+    </h3>
+</body>
+
+</html>
