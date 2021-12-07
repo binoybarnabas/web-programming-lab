@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function check()
+        {
+            var sqr = document.getElementById('val1').value;
+            var sqrans = Math.sqrt(sqr);
+
+            var num = document.getElementById('val2').value;
+            var ceilnum = Math.ceil(num);
+            var floornum = Math.floor(num);
+            var roundnum = Math.round(num);
+
+            var numsign = Math.sign(sqr);
+            var numtrunc = Math.trunc(num);
+
+            
+            document.getElementById("num1").innerHTML = sqrans;
+            document.getElementById("num2").innerHTML = ceilnum;
+            document.getElementById("num3").innerHTML = floornum;
+            document.getElementById("num4").innerHTML = roundnum;
+            document.getElementById("num5").innerHTML = numsign;
+            document.getElementById("num6").innerHTML = numtrunc;
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <center>
+        <h2>MATH FUNCTIONS</h2>
+        <form>
+            <table>
+                <tr>
+                    <th>enter the number</th>
+                    <td><input type="text" id="val1"></td>
+                </tr>
+
+                <tr>
+                    <th>enter a decimal number</th>
+                    <td><input type="text" id="val2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="button" value="submit" onClick="check()"></td>
+                </tr>
+
+            </table>
+        </form>
+    </center>
+
+
+    <center>
+        <div id="output">
+            <h3>output</h3>
+
+            <h3>square root of the number is:<h3 id="num1"></h3>
+            </h3>
+            <h3>ceil of the decimal number:<h3 id="num2"></h3>
+            </h3>
+            <h3>floor of the decimal number is:<h3 id="num3"></h3>
+            </h3>
+            <h3>round of the decimal number:<h3 id="num4"></h3>
+            </h3>
+            <h3>sign of the number:<h3 id="num5"></h3>
+            </h3>
+            <h3>truncated floar is:<h3 id="num6"></h3>
+            </h3>
+
+
+
+
+
+        </div>
+    </center>
+</body>
+
+</html>
