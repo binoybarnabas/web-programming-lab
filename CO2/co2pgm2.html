@@ -1,35 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript">
-        function calender(){
-        var yeaar = Number(document.getElementById('year').value);
-        console.log(yeaar);
+<html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
 
-        var jan=Number(31),feb=Number(28),mar=Number(31),april=Number(30),may=Number(31),june=Number(30),july=Number(31),august=Number(31),sep=Number(30),oct=Number(31),nov=Number(30),dec=Number(31);
-        if (yeaar % 4 == 0)
-        feb = Number(29);
+      td,
+      th {
+        border: 1px solid black;
+        padding: 3px;
+        text-align: center;
+      }
 
-        for(var i=1;i<=jan;++i)
-        {
-            
+      th {
+        font-weight: bold;
+        background-color: #e6e6e6;
+      }
+    </style>
+
+<script>
+  function createCalendar() {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let year = Number(document.getElementById("year").value);
+    //let mon = month - 1; // months in JS are 0..11, not 1..12
+    for (var mon = 0; mon < 12; ++mon) {
+      let d = new Date(year, mon);
+      console.log(d);
+      let table =
+        "<h3>" +
+        months[d.getMonth()] +
+        "</h3>" +
+        "<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>";
+
+      for (let i = 0; i < getDay(d); i++) {
+        //printing empty spaces till the month day starts
+        table += "<td></td>";
+      }
+
+      while (d.getMonth() == mon) {
+        table += "<td>" + d.getDate() + "</td>";
+
+        if (getDay(d) % 7 == 6) {
+          // sunday, last day of week - newline
+          table += "</tr><tr>";
         }
 
-        
+        d.setDate(d.getDate() + 1);
+      }
+
+      if (getDay(d) != 0) {
+        for (let i = getDay(d); i < 7; i++) {
+          table += "<td></td>";
+        }
+      }
+
+      // close the table
+      table += "</tr></table>";
+
+      document.getElementById(mon).innerHTML = table;
+
+      //document.getElementById('calender').innerHTML = table;
     }
-    </script>
-</head>
-<body>
-    <form>
-        <h3>enter the year to make the calender:</h3>
-        <input type="text" id = "year" ><br>
-        <input type="button" value="create calender" onClick="calender()">
 
+    function getDay(date) {
+      // get day number from 0 (monday) to 6 (sunday)
+      let day = date.getDay();
+      if (day == 0) day = 7; // make Sunday (0) the last day
+      return day - 1;
+    }
+  }
+</script>
 
-    </form>
-</body>
+  </head>
+
+  <body>
+    <table align="center">
+      <tr >
+        <td><div id="0"></div></td>
+        <td><div id="1"></div></td>
+        <td><div id="2"></div></td>
+        <td><div id="3"></div></td>
+      </tr>
+      <tr >
+        <td><div id="4"></div></td>
+        <td><div id="5"></div></td>
+        <td><div id="6"></div></td>
+        <td><div id="7"></div></td>
+      </tr>
+      <tr >
+        <td><div id="8"></div></td>
+        <td><div id="9"></div></td>
+        <td><div id="10"></div></td>
+        <td><div id="11"></div></td>
+      </tr>
+    </table>
+  </body>
+  <input type="text" id="year" />
+  <input type="button" value="submit" onClick="createCalendar();" />
 </html>
