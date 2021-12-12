@@ -19,89 +19,80 @@
       }
     </style>
 
-<script>
-  function createCalendar() {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let year = Number(document.getElementById("year").value);
-    //let mon = month - 1; // months in JS are 0..11, not 1..12
-    for (var mon = 0; mon < 12; ++mon) {
-      let d = new Date(year, mon);
-      console.log(d);
-      let table =
-        "<h3>" +
-        months[d.getMonth()] +
-        "</h3>" +
-        "<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>";
+    <script>
+      function createCalendar() {
+        const months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        let year = Number(document.getElementById("year").value);
+        for (var mon = 0; mon < 12; ++mon) {
+          let d = new Date(year, mon);
+          console.log(d);
+          let table =
+            "<h3>" +
+            months[d.getMonth()] +
+            "</h3>" +
+            "<table><tr><th>SU</th><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th></tr><tr>";
 
-      for (let i = 0; i < getDay(d); i++) {
-        //printing empty spaces till the month day starts
-        table += "<td></td>";
-      }
+          for (let i = 0; i < d.getDay(); i++) {
+            table += "<td></td>";
+          }
 
-      while (d.getMonth() == mon) {
-        table += "<td>" + d.getDate() + "</td>";
+          
+          while (d.getMonth() == mon) {
+            table += "<td>" + d.getDate() + "</td>";
 
-        if (getDay(d) % 7 == 6) {
-          // sunday, last day of week - newline
-          table += "</tr><tr>";
+            if (d.getDay() == 6) {
+              
+              table += "</tr><tr>";
+            }
+
+            d.setDate(d.getDate() + 1);
+          }
+
+         
+          if (d.getDay() != 0) 
+          {
+            for (let i = d.getDay(); i <= 6; i++) {
+              table += "<td></td>";
+            }
+          }
+
+          
+          table += "</tr></table>";
+
+          document.getElementById(mon).innerHTML = table;
         }
-
-        d.setDate(d.getDate() + 1);
       }
-
-      if (getDay(d) != 0) {
-        for (let i = getDay(d); i < 7; i++) {
-          table += "<td></td>";
-        }
-      }
-
-      // close the table
-      table += "</tr></table>";
-
-      document.getElementById(mon).innerHTML = table;
-
-      //document.getElementById('calender').innerHTML = table;
-    }
-
-    function getDay(date) {
-      // get day number from 0 (monday) to 6 (sunday)
-      let day = date.getDay();
-      if (day == 0) day = 7; // make Sunday (0) the last day
-      return day - 1;
-    }
-  }
-</script>
-
+    </script>
   </head>
 
   <body>
     <table align="center">
-      <tr >
+      <tr>
         <td><div id="0"></div></td>
         <td><div id="1"></div></td>
         <td><div id="2"></div></td>
         <td><div id="3"></div></td>
       </tr>
-      <tr >
+      <tr>
         <td><div id="4"></div></td>
         <td><div id="5"></div></td>
         <td><div id="6"></div></td>
         <td><div id="7"></div></td>
       </tr>
-      <tr >
+      <tr>
         <td><div id="8"></div></td>
         <td><div id="9"></div></td>
         <td><div id="10"></div></td>
