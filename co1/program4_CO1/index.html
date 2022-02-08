@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="reg.css">
+    <style>
+        body {
+            background-color: #12151F;
+        }
+
+        h3 {
+            color: #05F4B7;
+        }
+
+        input[type=text] {
+            border: 2px solid red;
+            border-radius: 4px;
+            width: 30%;
+        }
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="color:whitesmoke;">Registraion Form</h1>
+    <form>
+        <h3><label for="fname">First Name:</label></h3>
+        <input type="text" id="fname" name="fname" value="binoy"><br>
+        <h3><label for="lname">Last Name:</label></h3><br>
+        <input type="text" id="lname" name="lname" value="barnabas"><br>
+        <h3><label for="dob">D.O.B</label></h3>
+        <input type="date">
+        <h3><label for="age">Age:</label><br></h3>
+        <input type="text" name="age" id="age" value="18"><br>
+        <h3><label for="address">Address:</label></h3>
+        <textarea id="address" name="address" cols="30" rows="4" required>Please enter yout address</textarea><br>
+        <h3><label for="sex">sex:</label></h3>
+        <h6><input type="radio" name="sex" id="male" value="male" checked="true"><label for="male">male</label></h6>
+        <h6><input type="radio" name="sex" id="female" value="female"><label for="female">female</label></h6>
+        <h6><input type="radio" name="sex" id="others" value="others"><label for="others">others</label></h6>
+        <h3><label for="nationality">nationality:</label></h3>
+        <select id="nation" name="nation">
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="australia">Australia</option>
+        </select>
+        <br>
+        <h3><label for="languages">languages Known : </label></h3>
+        <h6><input type="checkbox" name="languages" id="html" value="html"><label for="html">html</label></h6>
+        <h6><input type="checkbox" name="languages" id="java" value="java"><label for="java">java</label></h6>
+        <h6><input type="checkbox" name="languages" id="python" value="python"><label for="python">python</label>
+            <br>
+            <h3><label for="password">Password : </label></h3>
+            <input type="password" name="password" id="password"><br>
+            <input type="submit" value="submit"><br>
+    </form>
+
+</body>
+
+</html>
