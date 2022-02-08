@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function toRupee()
+        {
+          var dollar = Number(document.getElementById('dollars').value);
+          var rupee;
+          rupee = dollar * 74;
+          document.getElementById('rupees').value = rupee;
+        }
+ 
+    </script>
+
+    <center>
+        <form>
+            enter the amount in dollars:
+            <input type="text" id="dollars"><br>
+            amount in rupees:
+            <input type="text" id="rupees"><br>
+            <input type="button" value="to₹" onClick="toRupee();">
+        </form>
+    </center>
+     
+</body>
+</html>

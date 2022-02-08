@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="reg.css">
+    <style>
+        body {
+            background-color: #12151F;
+        }
+
+        h3 {
+            color: #05F4B7;
+        }
+
+        input[type=text] {
+            border: 2px solid red;
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        input[type=password] {
+            border: 2px solid red;
+            border-radius: 4px;
+            width: 80%;
+        }
+
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function validate() {
+            var username;
+            var password;
+            var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+            username = document.getElementById('username').value;
+            password = document.getElementById('password').value;
+            phone = document.getElementById('phone').value;
+            console.log(username.length);
+            console.log(phone.length);
+            if (username.length < 4 || username == "") {
+                window.alert("enter username with more than 4 characters");
+                return false;
+            }
+            console.log(phone[0]);
+            s1 = Number(phone[0]);
+            if ((phone.length != 10) || isNaN(phone)) {
+                window.alert("enter a valid phone number");
+                if (phone == "") {
+                    window.alert("phone number field is empty");
+                }
+                return false;
+            }
+            if (password.length < 8) {
+                window.alert("password should have a minimum of 8 characters!");
+                return false;
+            }
+            if (password == "") {
+                window.alert("please enter a password");
+            }
+            if (password.match(format)) {
+                return;
+            }
+            else {
+                window.alert("enter the password with atleast one special symbol");
+            }
+
+
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1 style="color:whitesmoke;">Registration Form</h1>
+        <form>
+            <table>
+                <tr>
+                    <th style="color:whitesmoke;">Username:</th>
+                    <td><input type="text" id="username" name="username"></td>
+                </tr>
+                <tr>
+                    <th style="color:whitesmoke;">Password:</th>
+                    <td><input type="password" id="password" name="password"></td>
+                </tr>
+
+                <tr>
+                    <th style="color:whitesmoke;">Phone:</th>
+                    <td><input type="text" id="phone" name="phone"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="submit" onClick="validate();">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
